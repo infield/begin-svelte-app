@@ -1,34 +1,42 @@
-<img src="https://static.begin.app/node-svelte/readme-banner.png" width="788">
+# create-svelte
 
-[![Begin build status](https://buildstatus.begin.app/music-o76/status.svg)](https://begin.com)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-[Svelte](https://svelte.dev)'s starter app, extended by [Begin](https://begin.com)-based API endpoints.
+## Creating a project
 
-## Deploy your own
+If you're seeing this, you've probably already done this step. Congrats!
 
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-svelte)
+```bash
+# create a new project in the current directory
+npm init svelte@next
 
-Deploy your own clone of this app to Begin!
-
-## Getting started
-
-### Project setup
-
-```
-npm install
+# create a new project in my-app
+npm init svelte@next my-app
 ```
 
-### Start the local dev server
+> Note: the `@next` is temporary
 
-```
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-Navigate to [localhost:3333](http://localhost:3333). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+## Building
 
-## Begin Reference
+Svelte apps are built with _adapters_, which optimise your project for deployment to different environments.
 
-- [Quickstart](https://docs.begin.com/en/guides/quickstart/) - basics on working locally, project structure, deploying, and accessing your Begin app
-- [Creating new routes](https://docs.begin.com/en/functions/creating-new-functions) - basics on expanding the capabilities of your app
+By default, `npm run build` will generate a Node app that you can run with `node build`. To use a different adapter, add it to the `devDependencies` in `package.json` making sure to specify the version as `next` and update your `svelte.config.cjs` to [specify your chosen adapter](https://kit.svelte.dev/docs#configuration-adapter). The following official adapters are available:
 
-Head to [docs.begin.com](https://docs.begin.com/) to learn more!
+- [@sveltejs/adapter-node](https://github.com/sveltejs/kit/tree/master/packages/adapter-node)
+- [@sveltejs/adapter-static](https://github.com/sveltejs/kit/tree/master/packages/adapter-static)
+- [@sveltejs/adapter-netlify](https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify)
+- [@sveltejs/adapter-vercel](https://github.com/sveltejs/kit/tree/master/packages/adapter-vercel)
+- ...more soon
+
+[See the adapter documentation for more detail](https://kit.svelte.dev/docs#adapters)
